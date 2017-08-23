@@ -1,0 +1,42 @@
+@import normalize
+@import variables
+
+
+body
+	background-color: $color-bg
+	// overflow hidden
+
+
+@import bulbs
+
+
+#main-content
+	position relative
+	width 60%
+	// height 100vh
+	overflow hidden
+	&:before
+		content ''
+		position absolute
+		top -10%
+		left -10%
+		bottom -10%
+		margin auto
+		width 75%
+		height 120%
+		background-image url('/images/trianglify-background-3.svg')
+		background-position right center
+		background-size 150% auto
+		background-repeat no-repeat
+		// z-index -1
+		// filter blur(4px)
+		transition all .4s
+	section
+		height 100vh
+
+
+@import about
+
+@import skills
+
+@import projects

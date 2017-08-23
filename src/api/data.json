@@ -1,0 +1,56 @@
+{
+	"sections": [
+		{
+			"name": "about",
+			"content": ""
+		},
+		{
+			"name": "skills",
+			"content": [
+				{
+					"name": "HTML",
+					"background": "#f16529",
+					"size": 5
+				},
+				{
+					"name": "CSS",
+					"background": "#33a9dc",
+					"size": 4
+				},
+				{
+					"name": "JS",
+					"background": "#f0db4f",
+					"color": "#323330",
+					"size": 6
+				},
+				{
+					"name": "Stylus",
+					"background": "#323330",
+					"size": 3
+				},
+				{
+					"name": "React",
+					"text": "React.js",
+					"background": "#005e77",
+					"size": 4
+				},
+				{
+					"name": "Vue",
+					"text": "Vue.js",
+					"background": "#41b883",
+					"size": 3
+				},
+				{
+					"name": "Node",
+					"text": "Node.js",
+					"background": "#8e2a8e",
+					"size": 2
+				}
+			]
+		},
+		{
+			"name": "projects",
+			"content": ""
+		}
+	]
+}

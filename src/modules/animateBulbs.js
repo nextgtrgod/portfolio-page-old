@@ -10,7 +10,7 @@ export default function animateBulb() {
 		console.log(bulbsDOM);
 		
 		if(bulbsDOM) {
-			
+
 			let mousePos = {
 					x: 0,
 					y: 0
@@ -21,16 +21,16 @@ export default function animateBulb() {
 
 			let bulbs = [];
 
-			for(let i = 0; i < bulbsDOM.length; i++) {
-
+			[...bulbsDOM].map(item => {
 				let bulb = {
-					element: 	bulbsDOM[i],
-					speed:	 	bulbsDOM[i].dataset.speed,
-					direction: 	bulbsDOM[i].dataset.direction
+					element: 	item,
+					speed:	 	item.dataset.speed,
+					direction: 	item.dataset.direction
 				};
-
+	
 				bulbs.push(bulb);
-			};
+			});
+
 
 			document.addEventListener('mousemove', event => {
 				// horizontal axis
@@ -48,9 +48,11 @@ export default function animateBulb() {
 				targetX = normalize(mousePos.x, -1, 1, -1, 1);
 				// targetY = normalize(mousePos.y, -1, 1, -1, 1);
 				
-				for(let i = 0; i < bulbs.length; i++) {
-					bulbs[i].element.style.transform = `translate3d(${bulbs[i].speed * bulbs[i].direction * targetX}px, 0px, 0px)`;
-				};
+				[...bulbs].map(bulb => {
+					bulb.element.style.transform = `translate3d(${bulb.speed * 
+						bulb.direction * 
+						targetX}px, 0px, 0px)`;
+				});
 				
 				window.requestAnimationFrame(redraw);
 			};	
@@ -58,11 +60,11 @@ export default function animateBulb() {
 
 
 			function normalize(v, vmin, vmax, tmin, tmax) {
-				var nv = Math.max(Math.min(v,vmax), vmin);
-				var dv = vmax-vmin;
-				var pc = (nv-vmin)/dv;
-				var dt = tmax-tmin;
-				var tv = tmin + (pc*dt);
+				let nv = Math.max(Math.min(v, vmax), vmin);
+				let dv = vmax - vmin;
+				let pc = (nv - vmin) / dv;
+				let dt = tmax - tmin;
+				let tv = tmin + (pc * dt);
 				return tv;
 			};
 		};

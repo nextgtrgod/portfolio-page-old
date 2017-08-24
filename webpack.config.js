@@ -56,7 +56,7 @@ module.exports = {
         // host: '192.168.0.100',
         host: 'localhost',
         proxy: {
-            '/api': 'http://localhost:3000'
+            '/': 'http://localhost:3000'
         }
     },
 

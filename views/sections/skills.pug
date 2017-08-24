@@ -1,0 +1,9 @@
+
+section(id= `${sections[1].name}`)
+	ul
+		each item in sections[1].content
+			li(class= `skill-${item.name.toLowerCase()} size--${item.size}`)
+				if item.text
+					.inner= `${item.text}`
+				else
+					.inner= `${item.name}`

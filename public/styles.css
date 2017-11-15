@@ -38,7 +38,61 @@ ul {
   font-style: normal;
 }
 body {
+  height: 300vh;
   background-color: #f2f2f2;
+  font-family: agoranormal, Arial, sans-serif;
+}
+body.loaded .page {
+  opacity: 1;
+}
+#triangles {
+  position: absolute;
+  top: -10%;
+  left: -30%;
+  bottom: -10%;
+  margin: auto;
+  width: 75%;
+}
+#triangles * {
+  fill: none;
+  stroke: #111;
+}
+.page {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+.content {
+  position: relative;
+  width: 60%;
+  overflow: hidden;
+}
+.content section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+}
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @-webkit-keyframes move-from-top {
   0% {
@@ -58,22 +112,6 @@ body {
   100% {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
-  }
-}
-@-webkit-keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 .bulbs {
@@ -97,32 +135,24 @@ body {
 .bulbs #bulb-1 {
   right: 100px;
   width: 200px;
-  height: 80%;
-  background-image: url("/images/bulb-1.svg");
   -webkit-animation: fade-in 0.4s 0.4s;
           animation: fade-in 0.4s 0.4s;
 }
 .bulbs #bulb-2 {
   right: 60px;
   width: 130px;
-  height: 100%;
-  background-image: url("/images/bulb-2.svg");
   -webkit-animation: fade-in 0.4s 0.1s;
           animation: fade-in 0.4s 0.1s;
 }
 .bulbs #bulb-3 {
   right: 270px;
   width: 280px;
-  height: 100%;
-  background-image: url("/images/bulb-3.svg");
   -webkit-animation: fade-in 0.4s;
           animation: fade-in 0.4s;
 }
 .bulbs #bulb-4 {
   right: 560px;
   width: 155px;
-  height: 100%;
-  background-image: url("/images/bulb-4.svg");
   -webkit-filter: blur(2px);
           filter: blur(2px);
   -webkit-animation: fade-in 0.4s 0.5s;
@@ -131,36 +161,26 @@ body {
 .bulbs #bulb-5 {
   right: 445px;
   width: 85px;
-  height: 100%;
-  background-image: url("/images/bulb-5.svg");
   -webkit-filter: blur(4px);
           filter: blur(4px);
   -webkit-animation: fade-in 0.4s 0.6s;
           animation: fade-in 0.4s 0.6s;
 }
-#main-content {
-  position: relative;
-  width: 60%;
-  overflow: hidden;
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-#main-content:before {
-  content: '';
-  position: absolute;
-  top: -10%;
-  left: -10%;
-  bottom: -10%;
-  margin: auto;
-  width: 75%;
-  height: 120%;
-  background-image: url("/images/trianglify-background-3.svg");
-  background-position: right center;
-  background-size: 150% auto;
-  background-repeat: no-repeat;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-#main-content section {
-  height: 100vh;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @-webkit-keyframes move-from-top {
   0% {
@@ -182,26 +202,9 @@ body {
             transform: translate3d(0, 0, 0);
   }
 }
-@-webkit-keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 #skills {
   position: relative;
   width: 100%;
-  height: 100%;
 }
 #skills ul {
   position: absolute;
@@ -322,4 +325,33 @@ body {
 }
 #skills ul li .js-tilt-glare {
   z-index: 1;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #f0db4f;
+  border: none;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background: #508cbe;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+  border: none;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover,
+::-webkit-scrollbar-track:active {
+  background: #111;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

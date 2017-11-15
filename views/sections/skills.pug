@@ -1,8 +1,11 @@
 
-section(id= `${sections[1].name}`)
+section(id='skills')
 	ul
 		each item in sections[1].content
-			li(class= `skill-${item.name.toLowerCase()} size--${item.size}`)
+			li(
+				class= `skill-${item.name.toLowerCase()} size--${item.size}`
+				style= `background-color: ${item.background}`
+			)
 				if item.text
 					.inner= `${item.text}`
 				else

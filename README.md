@@ -1,8 +1,9 @@
 # portfolio-page
 ### Frontend-developer portfolio page
 
-* [express.js](http://expressjs.com/)
-* [pug](https://pugjs.org/)
+* [Express.js](http://expressjs.com/)
+* [Pug](https://pugjs.org/)
+* [vanilla-tilt.js](https://github.com/micku7zu/vanilla-tilt.js/)
 
 
 ![screen](https://image.ibb.co/kEeFQ6/portfolio_page.jpg)

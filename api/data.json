@@ -50,7 +50,36 @@
 		},
 		{
 			"name": "projects",
-			"content": ""
+			"content": [
+				{
+					"image": "./images/projects/react_forecast.jpg",
+					"link": "https://nextgtrgod.github.io/react-forecast/"
+				},
+				{
+					"image": "./images/projects/vuejs_todo_app.jpg",
+					"link": "https://nextgtrgod.github.io/vuejs-todo-app/"
+				},
+				{
+					"image": "./images/projects/gallery.jpg",
+					"link": "https://github.com/nextgtrgod/gallery"
+				},
+				{
+					"image": "./images/projects/threejs_lowpoly_world.jpg",
+					"link": "https://nextgtrgod.github.io/threejs-lowpoly-world/"
+				},
+				{
+					"image": "./images/projects/webaudio-synth.jpg",
+					"link": "https://nextgtrgod.github.io/webaudio-synth/"
+				},
+				{
+					"image": "./images/projects/nodejs_imdb_screen.jpg",
+					"link": "https://github.com/nextgtrgod/nodejs-omdb"
+				},
+				{
+					"image": "./images/projects/myzte.jpg",
+					"link": "https://myzte.ru/smartphones/blade/blade-a610/"
+				}
+			]
 		}
 	]
 }

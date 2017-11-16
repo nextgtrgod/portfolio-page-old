@@ -16,7 +16,7 @@
 - [x] page scroll animation
 - [x] inverse theme
 - [x] invert trigger more clickable
+- [x] projects section content
 - [ ] about section content
-- [ ] projects section content
 - [ ] mobile-friendly (less animations)
 - [ ] inverse theme cursor

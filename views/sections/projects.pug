@@ -1,2 +1,11 @@
 
 section(id='projects')
+	h2 {projects}
+	ul
+		each item in sections[2].content
+			li(
+				class= 'project'
+				data-content= 'myzte.ru'
+				style= `background-image: url(${item.image})`
+			)
+				a(href=`${item.link}` target='_blank')

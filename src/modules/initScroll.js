@@ -6,24 +6,22 @@ export default function initScroll() {
 	let sectionHeight = window.innerHeight;
 	window.addEventListener('resize', () => sectionHeight = window.innerHeight);
 
-	let scrollPos = 0;
-	body.dataset['section'] = 'about';
+	// start
+	let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+	setSection();
 
-	window.addEventListener('scroll', () => {
+
+	function setSection() {
 		scrollPos = window.pageYOffset || document.documentElement.scrollTop;
 
-		if ((scrollPos >= 0) && (scrollPos < sectionHeight)) {
-			
+		if ((scrollPos >= 0) && (scrollPos < sectionHeight)) {	
 			body.dataset['section'] = 'about';
-
 		} else if ((scrollPos >= sectionHeight) && (scrollPos < 2 * sectionHeight)) {
-
 			body.dataset['section'] = 'skills';
-
 		} else {
-
 			body.dataset['section'] = 'projects';
-
 		}
-	});
+	};
+
+	window.addEventListener('scroll', () => setSection());
 } 

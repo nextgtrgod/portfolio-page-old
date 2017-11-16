@@ -24,6 +24,12 @@
 	100%
 		transform translate3d(0, 0, 0)
 
+@keyframes move-left
+	0%
+		transform translate3d(100%, 0, 0)
+	100%
+		transform translate3d(0, 0, 0)
+
 
 // scroll animations
 body
@@ -41,6 +47,11 @@ body
 			opacity 1
 			transition opacity .2s
 			pointer-events all
+			h2
+				animation-name move-down, fade-in
+				animation-duration .4s
+				animation-fill-mode forwards
+
 			ul
 				li
 					animation move-down .4s
@@ -66,10 +77,23 @@ body
 	
 
 	&[data-section='projects']
+		.content
+			right 0
+
 		#projects
 			opacity 1
 			transition opacity .2s
 			pointer-events all
+			h2
+				animation-name move-left, fade-in
+				animation-duration .4s
+				animation-fill-mode forwards
+
+			ul
+				li
+					animation-name move-left, fade-in
+					animation-duration .4s
+					animation-fill-mode forwards
 		
 		.bulbs
 			transition all .4s
@@ -89,7 +113,6 @@ body
 		
 		#triangles
 			opacity 1
-			transition all .4s
 			transform translate3d(-100%, 0, 0)
 			path
 				animation-name fade-in, move-right

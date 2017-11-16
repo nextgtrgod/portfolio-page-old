@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	// show content
 	document.body.className = 'loaded';
 
-	let invertTrigger = document.getElementById('trigger-invert');
-	invertTrigger.addEventListener('click', () => document.body.classList.toggle('invert'));
+	if (CSS.supports('filter', 'invert(100%)')) {
+		let invertTrigger = document.getElementById('trigger-invert');
+		invertTrigger.addEventListener('click', () => document.body.classList.toggle('invert'));
+	};
 });
 

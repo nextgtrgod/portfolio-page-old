@@ -47,7 +47,9 @@ h2 {
   transition: opacity 0.4s;
 }
 .content {
-  position: relative;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   width: 60%;
   overflow: hidden;
 }
@@ -65,16 +67,10 @@ h2 {
 .content section h2 {
   display: inline-block;
   position: absolute;
-  top: 8.5%;
-  left: 1%;
   margin: 0;
-  padding: 5px 10px;
   font-size: 4em;
   line-height: 1;
-  background-color: #9cfdff;
-  -webkit-box-shadow: 2px 3px 0px #111;
-          box-shadow: 2px 3px 0px #111;
-  border: 2px solid #111;
+  text-shadow: -2px 1px 0 #111;
   z-index: 99;
 }
 #triangles {
@@ -93,9 +89,9 @@ h2 {
   stroke: #111;
 }
 #triangles path {
+  opacity: 0;
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
-  opacity: 0;
 }
 #triangles path:nth-of-type(1) {
   -webkit-animation-delay: 8.3s;
@@ -451,20 +447,23 @@ h2 {
   cursor: url("./assets/cursor-pointer.png"), auto;
 }
 .bulbs #bulb-1 {
-  right: 100px;
-  width: 200px;
+  right: 7%;
+  height: 65%;
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
 }
 .bulbs #bulb-2 {
-  right: 20px;
-  width: 132px;
+  right: 1%;
+  height: 100%;
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
 .bulbs #bulb-3 {
   right: 50%;
   height: 95%;
+}
+.bulbs #bulb-3 #trigger-invert {
+  fill: transparent;
 }
 .bulbs #bulb-3 g {
   -webkit-transition: all 0.4s;
@@ -475,16 +474,16 @@ h2 {
   transition: all 0.4s;
 }
 .bulbs #bulb-4 {
-  right: 560px;
-  width: 155px;
+  right: 36%;
+  height: 60%;
   -webkit-filter: blur(2px);
           filter: blur(2px);
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
 }
 .bulbs #bulb-5 {
-  right: 445px;
-  width: 85px;
+  right: 30%;
+  height: 36%;
   -webkit-filter: blur(4px);
           filter: blur(4px);
   -webkit-animation-delay: 0.4s;
@@ -493,6 +492,10 @@ h2 {
 #skills {
   position: relative;
   width: 100%;
+}
+#skills h2 {
+  top: 10%;
+  right: 10%;
 }
 #skills ul {
   position: absolute;
@@ -503,8 +506,8 @@ h2 {
   display: grid;
   width: 100%;
   height: 50%;
-  grid-auto-rows: 30px;
-  grid-template-columns: repeat(15, 40px);
+  grid-auto-rows: 8.5%;
+  grid-template-columns: repeat(15, 5%);
   grid-auto-flow: dense;
   grid-gap: 10px;
   -webkit-box-pack: center;
@@ -535,9 +538,6 @@ h2 {
   background-color: #33a9dc;
   text-align: right;
   letter-spacing: 5px;
-}
-#skills ul li.skill-css .inner {
-  color: #f0db4f;
 }
 #skills ul li.skill-stylus {
   font-size: 24px;
@@ -616,6 +616,144 @@ h2 {
 #skills ul li .js-tilt-glare {
   z-index: 1;
 }
+#projects h2 {
+  top: 10%;
+  left: 0;
+}
+#projects ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  width: 95%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+#projects ul li {
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-preferred-size: calc(25% - 1em);
+      flex-basis: calc(25% - 1em);
+  margin: 0.5em;
+  height: 50%;
+  background-position: center;
+  background-size: auto 105%;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: 0 2px 5px #111;
+          box-shadow: 0 2px 5px #111;
+  -webkit-transition: background 0.2s linear, -webkit-box-shadow 0.2s;
+  transition: background 0.2s linear, -webkit-box-shadow 0.2s;
+  transition: background 0.2s linear, box-shadow 0.2s;
+  transition: background 0.2s linear, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+  overflow: hidden;
+}
+#projects ul li:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #fc7420;
+  color: #fff;
+  opacity: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  pointer-events: none;
+}
+#projects ul li:after {
+  content: 'VIEW';
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  pointer-events: none;
+}
+#projects ul li:hover:before {
+  opacity: 0.99;
+  -webkit-box-shadow: 3px 0px 10px #111;
+          box-shadow: 3px 0px 10px #111;
+}
+#projects ul li:hover:after {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+#projects ul li:nth-of-type(1) {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+#projects ul li:nth-of-type(2) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+#projects ul li:nth-of-type(3) {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+#projects ul li:nth-of-type(4) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+#projects ul li:nth-of-type(5) {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+#projects ul li:nth-of-type(6) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+#projects ul li:nth-of-type(7) {
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+#projects ul li:nth-of-type(8) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+#projects ul li:nth-of-type(9) {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+#projects ul li:nth-of-type(10) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+#projects ul li a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
 body[data-section='about'] #about {
   opacity: 1;
   pointer-events: all;
@@ -628,6 +766,14 @@ body[data-section='skills'] #skills {
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
   pointer-events: all;
+}
+body[data-section='skills'] #skills h2 {
+  -webkit-animation-name: move-down, fade-in;
+          animation-name: move-down, fade-in;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 body[data-section='skills'] #skills ul li {
   -webkit-animation: move-down 0.4s;
@@ -659,11 +805,30 @@ body[data-section='skills'] #triangles path {
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
+body[data-section='projects'] .content {
+  right: 0;
+}
 body[data-section='projects'] #projects {
   opacity: 1;
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
   pointer-events: all;
+}
+body[data-section='projects'] #projects h2 {
+  -webkit-animation-name: move-left, fade-in;
+          animation-name: move-left, fade-in;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+body[data-section='projects'] #projects ul li {
+  -webkit-animation-name: move-left, fade-in;
+          animation-name: move-left, fade-in;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 body[data-section='projects'] .bulbs {
   -webkit-transition: all 0.4s;
@@ -688,8 +853,6 @@ body[data-section='projects'] #bulb-3 {
 }
 body[data-section='projects'] #triangles {
   opacity: 1;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
 }
@@ -777,6 +940,26 @@ body[data-section='projects'] #triangles path {
             transform: translate3d(0, 0, 0);
   }
 }
+@-webkit-keyframes move-left {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes move-left {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -831,4 +1014,8 @@ body.invert #bulb-3 g {
 }
 body.invert #bulb-3 g path {
   fill: #0f24b0;
+}
+body.invert #projects ul {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
 }

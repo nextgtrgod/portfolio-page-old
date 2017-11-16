@@ -6,7 +6,7 @@ export default function animateBulb() {
 	
 	if (WIDTH > breakpoint) {
 	
-		let	bulbsDOM = document.querySelectorAll('.bulbs > div');
+		let	bulbsDOM = document.querySelectorAll('.bulbs > *');
 		console.log(bulbsDOM);
 		
 		if(bulbsDOM) {
@@ -24,8 +24,8 @@ export default function animateBulb() {
 			[...bulbsDOM].map(item => {
 				let bulb = {
 					element: 	item,
-					speed:	 	item.dataset.speed,
-					direction: 	item.dataset.direction
+					speed:	 	item.dataset.speed || 10,
+					direction: 	item.dataset.direction || 1
 				};
 	
 				bulbs.push(bulb);

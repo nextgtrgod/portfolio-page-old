@@ -2,6 +2,9 @@
 ::-webkit-scrollbar
 	width 10px
 	height 10px
+	cursor pointer
+	@media (min-width 1600px)
+		width 15px
 
 ::-webkit-scrollbar-button
 	width 0px
@@ -16,7 +19,7 @@
 		background: #508CBE
 
 ::-webkit-scrollbar-track
-	background #111
+	background: $color-dark
 	border none
 	border-radius 0px
 	&:hover

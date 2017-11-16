@@ -1,28 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Jura:400,600');
+
 @import 'normalize'
 @import 'variables'
+
+
+absolute()
+	position absolute
+	top 0
+	left 0
+	right 0
+	bottom 0
+	margin auto
 
 
 body
 	height 300vh
 	background-color: $color-bg
 	font-family: $font-family-normal
+	cursor url(./assets/cursor-auto.png), auto
+	transition all .2s
 
 	&.loaded
 		.page
 			opacity 1
 
+a
+button
+	cursor url(./assets/cursor-pointer.png), auto
+	&:active
+		cursor url(./assets/cursor-pointer-click.png), auto
 
-#triangles
-	position absolute
-	top -10%
-	left -30%
-	bottom -10%
-	margin auto
-	width 75%
-	// height 120%
-	*
-		fill none
-		stroke #111
+h2
+	cursor url(./assets/cursor-text.png), auto
 
 
 .page
@@ -38,18 +47,15 @@ body
 	width 60%
 	overflow hidden
 
-	section
-		position absolute
-		top 0
-		left 0
-		right 0
-		bottom 0
-		height 100vh
+	@import 'sections/section'
 
 
+
+@import 'triangles'
 @import 'bulbs'
 @import 'sections/about'
 @import 'sections/skills'
 @import 'sections/projects'
-
+@import 'animation'
 @import 'scrollbar'
+@import 'invert'

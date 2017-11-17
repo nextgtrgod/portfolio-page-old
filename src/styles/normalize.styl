@@ -5,6 +5,7 @@ html, body
 	min-height 100vh
 	-ms-touch-action manipulation
 	touch-action manipulation
+	cursor url(./assets/cursor-auto.png), auto
 	margin 0
 	padding 0
 	display block
@@ -14,3 +15,19 @@ ul
 	list-style none
 	padding 0
 	margin 0
+
+button
+	border none
+	background-color transparent
+	font-family: $font-family-normal
+
+a
+button
+	cursor url(./assets/cursor-pointer.png), auto
+	&:active
+		cursor url(./assets/cursor-pointer-clicked.png), auto
+
+h1
+h2
+h3
+	cursor url(./assets/cursor-text.png), auto

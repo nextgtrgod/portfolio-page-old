@@ -1,0 +1,46 @@
+
+#about
+	width 100%
+	left 65%
+	h1
+		top 20%
+		left -15%
+		padding .1em
+		background-color: $color-primary
+
+	h2
+		top 60%
+		left -10%
+		color #FFF
+		padding .1em
+		background-color: $color-dark
+		mix-blend-mode darken
+	
+	.movable
+		will-change transform
+
+	.polygon
+		position absolute
+		pointer-events none
+		&:nth-of-type(1)
+			top 0
+			left 25%
+			width 15%
+			height 55%
+			background-color: $color-accent
+		
+		&:nth-of-type(2)
+			top 10%
+			left 50%
+			width 5%
+			height 75%
+			background-color: #fe1235
+
+		&:nth-of-type(3)
+			top 20%
+			left 45%
+			width 4vw
+			height 4vw
+			background-color #111
+			border-radius 50%
+			mix-blend-mode saturation

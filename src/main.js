@@ -1,22 +1,28 @@
 import './styles/main.styl';
 
 import initScroll from './modules/initScroll';
+import gridAnimation from './modules/gridAnimation';
 import initTilt from './modules/initTilt';
-import animateBulbs from './modules/animateBulbs';
 
 
 document.addEventListener('DOMContentLoaded', () => {
 
 	initScroll();
-	// animateBulbs();
 	initTilt();
 
-	// show content
-	document.body.className = 'loaded';
-
+	// inverse theme
 	if (CSS.supports('filter', 'invert(100%)')) {
 		let invertTrigger = document.getElementById('trigger-invert');
 		invertTrigger.addEventListener('click', () => document.body.classList.toggle('invert'));
 	};
+
+	// move animation
+	const moveAnimation = new gridAnimation();
+	[...document.querySelectorAll('.movable')].map(item => moveAnimation.subscribe(item));
+	moveAnimation.start();
+
+
+	// show content
+	document.body.className = 'loaded';
 });
 

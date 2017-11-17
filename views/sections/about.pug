@@ -1,4 +1,14 @@
 
 section(id='about')
-	//- h1= `${sections[0].name}`
-	//- p=	`${sections[0].content}`
+
+	.polygon.movable(data-speed='2')
+	.polygon.movable(data-speed='4')
+
+	h1(style='white-space: pre' class='movable' data-speed='1')
+		| Hi,
+		| I'm Kirill,
+		| web developer
+
+	h2(class='movable' data-speed='2') let's do a better web today
+
+	.polygon.movable(data-speed='3')

@@ -6,8 +6,8 @@
 * [vanilla-tilt.js](https://github.com/micku7zu/vanilla-tilt.js/)
 
 
-![screen](https://image.ibb.co/jLekcm/portfolio_page.jpg)
-![screen-inverse-theme](https://image.ibb.co/dmbgHm/portfolio_page_invert.jpg)
+![screen](https://image.ibb.co/cs8DDR/portfolio_page_1.jpg)
+![screen-inverse-theme](https://image.ibb.co/nLOftR/portfolio_page_2.jpg)
 
 [DEMO](http://nextgtrgod.info/)
 
@@ -17,6 +17,8 @@
 - [x] inverse theme
 - [x] invert trigger more clickable
 - [x] projects section content
-- [ ] about section content
+- [x] about section content
+- [ ] contacts section content
+- [ ] scroll to button
 - [ ] mobile-friendly (less animations)
 - [ ] inverse theme cursor

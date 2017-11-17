@@ -11,7 +11,7 @@
 		position absolute
 		top -1%
 		opacity 0
-		transition opacity .4s, right .4s
+		transition all .4s
 		will-change transform, opacity
 		fill: $color-dark
 	#trigger-invert
@@ -27,8 +27,10 @@
 			height 100%
 			animation-delay .2s
 		&-3
-			right 50%
-			height 95%
+			top -20%
+			left 8%
+			// height 95%
+			height 110%
 			#trigger-invert
 				fill transparent
 			g

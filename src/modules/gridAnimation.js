@@ -59,7 +59,7 @@ export default class gridAnimation {
 		this.items = this.items.filter(item => item !== node);
 	}
 
-	animate = () => {
+	start = () => {
 		this.items.map(item => {
 			const transX = 2 * this.params.tilt.x / this.params.width * this.params.mousePos.x - this.params.tilt.x;
 			const transY = 2 * this.params.tilt.y / this.params.height * this.params.mousePos.y - this.params.tilt.y;
@@ -72,12 +72,12 @@ export default class gridAnimation {
 			
 			const dist = getDistance(itemCenter.x, itemCenter.y, this.params.center.x, this.params.center.y);
 
-			const tx = transX / this.params.width * dist || 0;
-			const ty = transY / this.params.height * dist || 0;
+			const tx = transX / this.params.width * dist * item.dataset['speed'] || 0;
+			const ty = transY / this.params.height * dist * item.dataset['speed'] || 0;
 			
 			item.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
 		});
 
-		requestAnimationFrame(this.animate);
+		requestAnimationFrame(this.start);
 	}
 }

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Jura:400,600');
 
-@import 'normalize'
 @import 'variables'
+@import 'normalize'
 
 
 absolute()
@@ -17,21 +17,11 @@ body
 	height 300vh
 	background-color: $color-bg
 	font-family: $font-family-normal
-	cursor url(./assets/cursor-auto.png), auto
 	transition all .2s
 
 	&.loaded
 		.page
 			opacity 1
-
-a
-button
-	cursor url(./assets/cursor-pointer.png), auto
-	&:active
-		cursor url(./assets/cursor-pointer-click.png), auto
-
-h2
-	cursor url(./assets/cursor-text.png), auto
 
 
 .page
@@ -47,9 +37,37 @@ h2
 	top 0
 	bottom 0
 	width 60%
-	overflow hidden
+	// overflow hidden
 
 	@import 'sections/section'
+
+
+#advice
+	position absolute
+	left 50%
+	bottom 6%
+	transform translateX(-50%)
+	font-size 1.1em
+	opacity 0
+	user-select none
+	&:after
+		content ''
+		position absolute
+		left 0
+		right 0
+		bottom -2.6em
+		margin auto
+		width 4em
+		height 4em
+		background-image url('./assets/chevron.svg')
+		opacity .8
+		background-position center
+		background-size cover
+		background-repeat no-repeat
+		animation bounce 2s infinite
+
+	&:focus
+		outline none
 
 
 

@@ -30,16 +30,33 @@
 	100%
 		transform translate3d(0, 0, 0)
 
+@keyframes bounce
+	0%
+		transform translate3d(0, 0, 0)
+	50%
+		transform translate3d(0, 10%, 0)
+	100%
+		transform translate3d(0, 0, 0)
+
 
 // scroll animations
 body
 	&[data-section='about']
+		.content
+			pointer-events none
+
 		#about
 			opacity 1
+			transition opacity .8s
 			pointer-events all
 			
 		#bulb-3
+			height 110%
 			opacity 1
+		
+		#advice
+			opacity 1
+			transition opacity .4s
 
 
 	&[data-section='skills']
@@ -65,8 +82,10 @@ body
 				animation-duration .4s
 				animation-fill-mode forwards
 			&-3
+				top -1%
+				left 62%
+				height 95%
 				opacity 1
-				right 20%
 		
 		#triangles
 			opacity 1
@@ -108,8 +127,10 @@ body
 				animation-duration .4s
 				animation-fill-mode forwards
 			&-3
+				top -1%
+				left 62%
+				height 95%
 				opacity 1
-				right 20%
 		
 		#triangles
 			opacity 1

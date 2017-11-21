@@ -27,9 +27,10 @@
 			background-size auto 105%
 			background-repeat no-repeat
 			box-shadow: 0 2px 5px $color-dark
-			transition: background .2s linear, box-shadow .2s
+			transition: box-shadow .2s
 			opacity 0
 			transform translate3d(100%, 0, 0)
+			will-change transform
 			overflow hidden
 			&:before
 				content ''

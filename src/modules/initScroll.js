@@ -4,6 +4,9 @@ export default function initScroll() {
 	const html = document.documentElement;
 
 	let sectionHeight = window.innerHeight;
+	let sectionCount = document.getElementsByTagName('section').length;
+	let calculatedHeight = (sectionCount - 1) * sectionHeight / sectionCount;
+
 	window.addEventListener('resize', () => sectionHeight = window.innerHeight);
 
 	// start
@@ -14,14 +17,14 @@ export default function initScroll() {
 	function setSection() {
 		scrollPos = window.pageYOffset || document.documentElement.scrollTop;
 
-		if ((scrollPos >= 0) && (scrollPos < sectionHeight)) {	
+		if ((scrollPos >= 0) && (scrollPos < calculatedHeight)) {	
 			body.dataset['section'] = 'about';
-		} else if ((scrollPos >= sectionHeight) && (scrollPos < 2 * sectionHeight)) {
+		} else if ((scrollPos >= calculatedHeight) && (scrollPos < 2 * calculatedHeight)) {
 			body.dataset['section'] = 'skills';
 		} else {
 			body.dataset['section'] = 'projects';
-		}
+		};
 	};
 
 	window.addEventListener('scroll', () => setSection());
-} 
+}

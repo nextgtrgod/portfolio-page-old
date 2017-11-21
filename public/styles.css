@@ -35,12 +35,47 @@ h2,
 h3 {
   cursor: url("./assets/cursor-text.png"), auto;
 }
+a {
+  color: #111;
+  text-decoration: none;
+}
 body {
   height: 300vh;
   background-color: #f2f2f2;
   font-family: 'Jura', sans-serif;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  font-size: 6px;
+}
+@media (min-width: 720px) {
+  body {
+    font-size: 8px;
+  }
+}
+@media (min-width: 960px) {
+  body {
+    font-size: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1400px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1600px) {
+  body {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1900px) {
+  body {
+    font-size: 21px;
+  }
 }
 body.loaded .page {
   opacity: 1;
@@ -69,6 +104,7 @@ body.loaded .page {
   height: 100vh;
   opacity: 0;
   pointer-events: none;
+  will-change: opacity;
 }
 .content section h1,
 .content section h2 {
@@ -85,20 +121,21 @@ body.loaded .page {
   font-size: 4em;
   z-index: 99;
 }
-#advice {
+#scroll-to {
   position: absolute;
   left: 50%;
   bottom: 6%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  font-size: 1.1em;
+  font-size: 1.2em;
   opacity: 0;
+  pointer-events: none;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
-#advice:after {
+#scroll-to:after {
   content: '';
   position: absolute;
   left: 0;
@@ -115,8 +152,14 @@ body.loaded .page {
   -webkit-animation: bounce 2s infinite;
           animation: bounce 2s infinite;
 }
-#advice:focus {
+#scroll-to:focus {
   outline: none;
+}
+#scroll-anchor {
+  position: absolute;
+  top: 100vh;
+  opacity: 0;
+  pointer-events: none;
 }
 #triangles {
   position: absolute;
@@ -126,6 +169,7 @@ body.loaded .page {
   margin: auto;
   width: 60%;
   opacity: 0;
+  will-change: transform, opacity;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
@@ -476,6 +520,7 @@ body.loaded .page {
   right: 0;
   width: 100%;
   height: 100%;
+  will-change: transform;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
@@ -507,6 +552,7 @@ body.loaded .page {
   top: -20%;
   left: 8%;
   height: 110%;
+  will-change: top, left;
 }
 .bulbs #bulb-3 #trigger-invert {
   fill: transparent;
@@ -535,18 +581,59 @@ body.loaded .page {
   -webkit-animation-delay: 0.4s;
           animation-delay: 0.4s;
 }
+html.any-firefox #bulb-3 #trigger-invert {
+  display: none;
+}
 #about {
   width: 100%;
   left: 65%;
 }
+#about .contacts {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 99;
+}
+#about .contacts li {
+  width: 3em;
+  height: 3em;
+  margin: 0.5em;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  will-change: transform;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+#about .contacts li a {
+  display: block;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#about .contacts li a[href*='gmail'] {
+  background-image: url("./images/contacts/gmail.svg");
+}
+#about .contacts li a[href*='github'] {
+  background-image: url("./images/contacts/github.svg");
+}
+#about .contacts li:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
 #about h1 {
-  top: 20%;
+  top: 22%;
   left: -15%;
   padding: 0.1em;
   background-color: #f0db4f;
 }
 #about h2 {
-  top: 60%;
+  top: 62%;
   left: -10%;
   color: #fff;
   padding: 0.1em;
@@ -561,21 +648,21 @@ body.loaded .page {
   pointer-events: none;
 }
 #about .polygon:nth-of-type(1) {
-  top: 0;
+  top: 2%;
   left: 25%;
   width: 15%;
   height: 55%;
   background-color: #508cbe;
 }
 #about .polygon:nth-of-type(2) {
-  top: 10%;
+  top: 12%;
   left: 50%;
   width: 5%;
   height: 75%;
   background-color: #fe1235;
 }
 #about .polygon:nth-of-type(3) {
-  top: 20%;
+  top: 22%;
   left: 45%;
   width: 4vw;
   height: 4vw;
@@ -588,7 +675,7 @@ body.loaded .page {
   width: 100%;
 }
 #skills h2 {
-  top: 10%;
+  top: 12%;
   right: 10%;
 }
 #skills ul {
@@ -614,7 +701,7 @@ body.loaded .page {
 #skills ul li {
   position: relative;
   color: transparent;
-  font-size: 40px;
+  font-size: 2.5em;
   font-weight: 600;
   text-align: center;
   -webkit-box-shadow: 0 0 0 2px #111;
@@ -626,7 +713,7 @@ body.loaded .page {
 }
 #skills ul li.skill-html {
   background-color: #f16529;
-  font-size: 55px;
+  font-size: 3.4em;
 }
 #skills ul li.skill-css {
   background-color: #33a9dc;
@@ -634,7 +721,7 @@ body.loaded .page {
   letter-spacing: 5px;
 }
 #skills ul li.skill-stylus {
-  font-size: 24px;
+  font-size: 1.5em;
   background-color: #323330;
 }
 #skills ul li.skill-js {
@@ -646,22 +733,22 @@ body.loaded .page {
   right: 10px;
   bottom: 0;
   color: #323330;
-  font-size: 95px;
+  font-size: 2.8em;
   font-weight: bold;
-  line-height: 95px;
-  height: 95px;
+  line-height: 3.1em;
+  height: 2em;
 }
 #skills ul li.skill-react {
   background-color: #005e77;
-  font-size: 25px;
+  font-size: 1.625em;
 }
 #skills ul li.skill-vue {
   background-color: #41b883;
-  font-size: 24px;
+  font-size: 1.5em;
 }
 #skills ul li.skill-node {
   background-color: #8e2a8e;
-  font-size: 16px;
+  font-size: 1em;
 }
 #skills ul li.size--1 {
   grid-row: auto/auto;
@@ -751,13 +838,14 @@ body.loaded .page {
   background-repeat: no-repeat;
   -webkit-box-shadow: 0 2px 5px #111;
           box-shadow: 0 2px 5px #111;
-  -webkit-transition: background 0.2s linear, -webkit-box-shadow 0.2s;
-  transition: background 0.2s linear, -webkit-box-shadow 0.2s;
-  transition: background 0.2s linear, box-shadow 0.2s;
-  transition: background 0.2s linear, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+  -webkit-transition: -webkit-box-shadow 0.2s;
+  transition: -webkit-box-shadow 0.2s;
+  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
   opacity: 0;
   -webkit-transform: translate3d(100%, 0, 0);
           transform: translate3d(100%, 0, 0);
+  will-change: transform;
   overflow: hidden;
 }
 #projects ul li:before {
@@ -861,10 +949,11 @@ body[data-section='about'] #bulb-3 {
   height: 110%;
   opacity: 1;
 }
-body[data-section='about'] #advice {
+body[data-section='about'] #scroll-to {
   opacity: 1;
   -webkit-transition: opacity 0.4s;
   transition: opacity 0.4s;
+  pointer-events: all;
 }
 body[data-section='skills'] #skills {
   opacity: 1;
@@ -873,8 +962,8 @@ body[data-section='skills'] #skills {
   pointer-events: all;
 }
 body[data-section='skills'] #skills h2 {
-  -webkit-animation-name: move-down, fade-in;
-          animation-name: move-down, fade-in;
+  -webkit-animation-name: fade-in, move-down;
+          animation-name: fade-in, move-down;
   -webkit-animation-duration: 0.4s;
           animation-duration: 0.4s;
   -webkit-animation-fill-mode: forwards;
@@ -1031,8 +1120,8 @@ body[data-section='projects'] #triangles path {
 }
 @-webkit-keyframes move-right {
   0% {
-    -webkit-transform: translate3d(-150%, 0, 0);
-            transform: translate3d(-150%, 0, 0);
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
   }
   100% {
     -webkit-transform: translate3d(0, 0, 0);
@@ -1041,8 +1130,8 @@ body[data-section='projects'] #triangles path {
 }
 @keyframes move-right {
   0% {
-    -webkit-transform: translate3d(-150%, 0, 0);
-            transform: translate3d(-150%, 0, 0);
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
   }
   100% {
     -webkit-transform: translate3d(0, 0, 0);

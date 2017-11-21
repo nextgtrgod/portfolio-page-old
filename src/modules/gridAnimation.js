@@ -45,9 +45,6 @@ export default class gridAnimation {
 			this.params.mousePos = getMousePos(e);
 		});
 
-		(document.getElementsByTagName('html')[0].className)
-			.includes('any-chrome') && this.animate();
-
 		return instance;
 	}
 

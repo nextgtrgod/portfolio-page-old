@@ -18,7 +18,7 @@
 - [x] invert trigger more clickable
 - [x] projects section content
 - [x] about section content
-- [ ] contacts section content
-- [ ] scroll to button
+- [x] contacts
+- [x] scroll to button
 - [ ] mobile-friendly (less animations)
 - [ ] inverse theme cursor

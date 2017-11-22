@@ -37,13 +37,42 @@ export default class gridAnimation {
 		}
 	
 		window.addEventListener('resize', () => {
-			let WIDTH = window.innerWidth;
-			let HEIGHT = window.innerHeight;
+			WIDTH = window.innerWidth;
+			HEIGHT = window.innerHeight;
 		}, false);
 
-		document.addEventListener('mousemove', e => {
-			this.params.mousePos = getMousePos(e);
-		});
+		// gyroscope
+		let gyroPresent = false;
+		let gyroscope = {
+			x: 0,
+			y: 0,
+		};
+		window.addEventListener('deviceorientation', event => {
+			
+			if (event.beta && event.gamma) {
+				gyroPresent = true;
+		
+				gyroscope.x = event.gamma;	// -90..90
+				gyroscope.y = event.beta;	// -180..180
+		
+				if (gyroscope.x > 90)  { gyroscope.x = 90 };
+				if (gyroscope.x < -90) { gyroscope.x = -90 };
+		
+				if (gyroscope.y > 45)  { gyroscope.y = 45 };
+				if (gyroscope.y < -45) { gyroscope.y = -45 };
+
+				this.params.mousePos = {
+					x: (gyroscope.x / 90) * WIDTH,
+					y: (gyroscope.y / 45) * HEIGHT
+				};
+			};
+		}, true);
+
+		if (!gyroPresent) {
+			document.addEventListener('mousemove', e => {
+				this.params.mousePos = getMousePos(e);
+			});
+		};
 
 		return instance;
 	}
@@ -69,8 +98,8 @@ export default class gridAnimation {
 			
 			const dist = getDistance(itemCenter.x, itemCenter.y, this.params.center.x, this.params.center.y);
 
-			const tx = transX / this.params.width * dist * item.dataset['speed'] || 0;
-			const ty = transY / this.params.height * dist * item.dataset['speed'] || 0;
+			const tx = transX / this.params.width * dist || 0;
+			const ty = transY / this.params.height * dist || 0;
 			
 			item.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
 		});

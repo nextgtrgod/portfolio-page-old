@@ -4,11 +4,14 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
-    entry: './src/main.js',
+    entry: {
+        main:   './src/main.js',    // desktop
+        mobile: './src/mobile.js'   // phobe/tablet
+	},
 
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public'),
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'public')
     },
 
     module: {
@@ -49,9 +52,7 @@ module.exports = {
     },
 
     plugins: [
-        new ExtractTextPlugin({
-            filename: ('styles.css')
-        }),
+        new ExtractTextPlugin('[name].css'),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false,
@@ -83,7 +84,7 @@ module.exports = {
 		port: 9090,
         host: '0.0.0.0',
         proxy: {
-            '/': 'http://localhost:4000'
+            '/': 'http://localhost:3000'
         }
     },
 

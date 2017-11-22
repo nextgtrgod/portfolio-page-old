@@ -80,6 +80,9 @@ body {
 body.loaded .page {
   opacity: 1;
 }
+body.loaded #triangles {
+  display: block !important;
+}
 .page {
   position: fixed;
   width: 100%;
@@ -525,6 +528,7 @@ body.loaded .page {
   transition: all 0.4s;
 }
 .bulbs>* {
+  display: block;
   position: absolute;
   top: -1%;
   opacity: 0;
@@ -681,16 +685,16 @@ html.any-firefox #bulb-3 #trigger-invert {
 #skills ul {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 1em;
   bottom: 0;
   margin: auto;
   display: grid;
-  width: 100%;
+  width: 95%;
   height: 50%;
-  grid-auto-rows: 8.5%;
+  grid-auto-rows: 8%;
   grid-template-columns: repeat(15, 5%);
   grid-auto-flow: dense;
-  grid-gap: 10px;
+  grid-gap: 1em;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -711,68 +715,52 @@ html.any-firefox #bulb-3 #trigger-invert {
   will-change: transform;
   cursor: url("./assets/cursor-drag.png"), auto;
 }
-#skills ul li.skill-html {
-  background-color: #f16529;
+#skills ul li[data-size='1'] {
+  grid-row: auto/auto;
+  grid-column: auto/auto;
+}
+#skills ul li[data-size='2'] {
+  grid-column: auto/span 2;
+  grid-row: auto/span 2;
+  font-size: 1em;
+}
+#skills ul li[data-size='3'] {
+  grid-column: auto/span 3;
+  grid-row: auto/span 3;
+  font-size: 1.5em;
+}
+#skills ul li[data-size='4'] {
+  grid-column: auto/span 4;
+  grid-row: auto/span 4;
+  font-size: 2em;
+}
+#skills ul li[data-size='5'] {
+  grid-column: auto/span 5;
+  grid-row: auto/span 5;
+  font-size: 2.5em;
+}
+#skills ul li[data-size='6'] {
+  grid-column: auto/span 6;
+  grid-row: auto/span 6;
+  font-size: 3em;
+}
+#skills ul li[data-skill='html'] {
   font-size: 3.4em;
 }
-#skills ul li.skill-css {
-  background-color: #33a9dc;
+#skills ul li[data-skill='css'] {
   text-align: right;
   letter-spacing: 5px;
 }
-#skills ul li.skill-stylus {
-  font-size: 1.5em;
-  background-color: #323330;
-}
-#skills ul li.skill-js {
-  background-color: #f0db4f;
-}
-#skills ul li.skill-js .inner {
+#skills ul li[data-skill='js'] .inner {
   top: unset;
   left: unset;
-  right: 10px;
+  right: 0;
   bottom: 0;
   color: #323330;
   font-size: 2.8em;
   font-weight: bold;
   line-height: 3.1em;
   height: 2em;
-}
-#skills ul li.skill-react {
-  background-color: #005e77;
-  font-size: 1.625em;
-}
-#skills ul li.skill-vue {
-  background-color: #41b883;
-  font-size: 1.5em;
-}
-#skills ul li.skill-node {
-  background-color: #8e2a8e;
-  font-size: 1em;
-}
-#skills ul li.size--1 {
-  grid-row: auto/auto;
-  grid-column: auto/auto;
-}
-#skills ul li.size--2 {
-  grid-column: auto/span 2;
-  grid-row: auto/span 2;
-}
-#skills ul li.size--3 {
-  grid-column: auto/span 3;
-  grid-row: auto/span 3;
-}
-#skills ul li.size--4 {
-  grid-column: auto/span 4;
-  grid-row: auto/span 4;
-}
-#skills ul li.size--5 {
-  grid-column: auto/span 5;
-  grid-row: auto/span 5;
-}
-#skills ul li.size--6 {
-  grid-column: auto/span 6;
-  grid-row: auto/span 6;
 }
 #skills ul li .inner {
   position: absolute;
@@ -832,7 +820,7 @@ html.any-firefox #bulb-3 #trigger-invert {
   -ms-flex-preferred-size: calc(25% - 1em);
       flex-basis: calc(25% - 1em);
   margin: 0.5em;
-  height: 50%;
+  height: 45%;
   background-position: center;
   background-size: auto 105%;
   background-repeat: no-repeat;

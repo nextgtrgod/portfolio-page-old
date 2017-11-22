@@ -4,8 +4,10 @@ section(id='skills')
 	ul
 		each item in sections[1].content
 			li(
-				class= `skill-${item.name.toLowerCase()} size--${item.size}`
-				style= `background-color: ${item.background}`
+				data-size=`${item.size}`
+				data-skill=`${item.name.toLowerCase()}`
+				data-confidence=`${item.confidence}`
+				style=`background-color: ${item.background}`
 			)
 				if item.text
 					.inner= `${item.text}`

@@ -10,41 +10,48 @@
 				{
 					"name": "HTML",
 					"background": "#FE1235",
-					"size": 5
+					"size": 5,
+					"confidence": 100
 				},
 				{
 					"name": "CSS",
-					"background": "#33a9dc",
-					"size": 4
+					"background": "#33A9DC",
+					"size": 4,
+					"confidence": 95 
 				},
 				{
 					"name": "JS",
-					"background": "#f0db4f",
+					"background": "#F0DB4F",
 					"color": "#323330",
-					"size": 6
+					"size": 6,
+					"confidence": 80
 				},
 				{
 					"name": "Stylus",
 					"background": "#323330",
-					"size": 3
+					"size": 3,
+					"confidence": 95
 				},
 				{
 					"name": "React",
 					"text": "React.js",
-					"background": "#005e77",
-					"size": 4
+					"background": "#005E77",
+					"size": 4,
+					"confidence": 75
 				},
 				{
 					"name": "Vue",
 					"text": "Vue.js",
-					"background": "#41b883",
-					"size": 3
+					"background": "#41B883",
+					"size": 3,
+					"confidence": 60
 				},
 				{
 					"name": "Node",
 					"text": "Node.js",
-					"background": "#8e2a8e",
-					"size": 2
+					"background": "#8E2A8E",
+					"size": 2,
+					"confidence": 50
 				}
 			]
 		},

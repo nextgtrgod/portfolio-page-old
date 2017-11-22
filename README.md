@@ -20,5 +20,4 @@
 - [x] about section content
 - [x] contacts
 - [x] scroll to button
-- [ ] mobile-friendly (less animations)
-- [ ] inverse theme cursor
+- [x] mobile-friendly (less animations)

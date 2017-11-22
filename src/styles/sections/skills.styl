@@ -9,88 +9,61 @@
 	ul
 		position absolute
 		top 0
-		left 0
+		left 1em
 		bottom 0
 		margin auto
 		display grid
-		width 100%
+		width 95%
 		height 50%
-		grid-auto-rows 8.5%
+		grid-auto-rows 8%
 		grid-template-columns repeat(15, 5%)
 		grid-auto-flow dense
-		grid-gap 10px
+		grid-gap 1em
 		justify-content center
 		align-items space-around
 		li
 			position relative
 			color transparent
 			font-size 2.5em
-			// font-family 'Source Code Pro', monospace
 			font-weight 600
 			text-align center
 			box-shadow: 0 0 0 2px $color-dark
 			transform-style preserve-3d
 			will-change transform
 			cursor url(./assets/cursor-drag.png), auto
-			&.skill
-				&-html
-					background-color #f16529
-					font-size 3.4em
-				&-css
-					background-color #33a9dc
-					text-align right
-					letter-spacing 5px
-				&-stylus
-					font-size 1.5em
-					background-color #323330
-				&-js
-					background-color #f0db4f
-					.inner
-						top unset
-						left unset
-						right 10px
-						bottom 0
-						color #323330
-						font-size 2.8em
-						font-weight bold
-						line-height 3.1em
-						height 2em
 
-				&-react
-					background-color #005e77
-					font-size 1.625em
-				&-vue
-					background-color #41b883
-					font-size 1.5em
-				&-node
-					background-color #8e2a8e
-					font-size 1em
+			// size values
+			&[data-size='1']
+				grid-row auto / auto
+				grid-column auto / auto
+	
+			for i in 2..6
+				&[data-size=\'{i}\']
+					grid-column: auto / span i 
+					grid-row: auto / span i
+					font-size: (i * .5)em
 
-			&.size
-				&--1
-					grid-row auto / auto
-					grid-column auto / auto
-				
-				&--2
-					grid-column auto / span 2
-					grid-row auto / span 2
-				
-				&--3
-					grid-column auto / span 3
-					grid-row auto / span 3
-				
-				&--4
-					grid-column auto / span 4
-					grid-row auto / span 4
-				
-				&--5
-					grid-column auto / span 5
-					grid-row auto / span 5
-				
-				&--6
-					grid-column auto / span 6
-					grid-row auto / span 6
-			
+			// skill names
+			&[data-skill='html']
+				font-size 3.4em
+	
+			&[data-skill='css']
+				text-align right
+				letter-spacing 5px
+
+			&[data-skill='js']
+				.inner
+					top unset
+					left unset
+					right 0
+					bottom 0
+					color #323330
+					font-size 2.8em
+					font-weight bold
+					line-height 3.1em
+					height 2em
+
+
 			.inner
 				position absolute
 				top 0

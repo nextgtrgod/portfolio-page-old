@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css?family=Jura:400,600');
+
+@import 'variables'
+@import 'normalize'
+
+
+absolute()
+	position absolute
+	top 0
+	left 0
+	right 0
+	bottom 0
+	margin auto
+
+
+body
+	background-color: $color-bg
+	font-family: $font-family-normal
+	overflow-x hidden
+	font-size 6px
+	@media (min-width 720px)
+		font-size 8px
+	@media (min-width 960px)
+		font-size 10px
+	@media (min-width 1200px)
+		font-size 14px
+	@media (min-width 1400px)
+		font-size 16px
+	@media (min-width 1600px)
+		font-size 18px
+	@media (min-width 1900px)
+		font-size 21px
+	
+	&.loaded
+		.content
+			opacity 1
+			#about
+				h1
+					animation-name fade-in, move-right
+					animation-duration .4s
+					animation-fill-mode forwards
+
+				h2
+					animation-name fade-in, move-left
+					animation-duration .4s
+					animation-delay .2s
+					animation-fill-mode forwards
+				
+				.polygon
+					&:nth-of-type(1)
+						animation-name fade-in, move-bottom
+						animation-duration .4s
+						animation-delay .1s
+						animation-fill-mode forwards
+
+					&:nth-of-type(2)
+						animation-name fade-in, move-up
+						animation-duration .4s
+						animation-delay .3s
+						animation-fill-mode forwards
+
+					&:nth-of-type(3)
+						animation-name fade-in
+						animation-duration .4s
+						animation-delay .4s
+						animation-fill-mode forwards
+				
+				.contacts
+					animation-name fade-in
+					animation-duration .4s
+					animation-delay .5s
+					animation-fill-mode forwards
+
+
+//
+// #triangles
+// 	position fixed
+// 	top -10%
+// 	left 0
+// 	bottom -10%
+// 	margin auto
+// 	width 50%
+// 	background-image url('./assets/triangles.svg')
+// 	background-size auto 100%
+// 	background-position right center
+
+
+//
+.bulbs
+	position fixed
+	top 0
+	left 0
+	right 0
+	bottom 0
+	margin auto
+	transform translateZ(0)
+	&>*
+		position absolute
+		top -1%
+
+
+	#bulb-3
+		display none
+		right 15%
+		height 50%
+		filter blur(4px)
+		transform translateZ(0)
+		#trigger-invert
+			fill transparent
+
+
+//
+.content
+	opacity 0
+	transition opacity .4s
+	section
+		position relative
+		padding 2em
+		margin-bottom 4em
+		overflow hidden
+		h1
+		h2
+			text-shadow: -1px 1px 0 $color-dark
+			line-height 1
+		h2
+			font-size 6em
+
+
+//
+#about
+	height 100vh
+	&>*
+		opacity 0
+
+	.contacts
+		position absolute
+		top 0
+		right 0
+		display flex
+		z-index 99
+		li
+			width 6em
+			height 6em
+			margin 1.5em
+			a
+				display block
+				height 100%
+				background-size cover
+				background-position center
+				background-repeat no-repeat
+				&[href*='gmail']
+					background-image url('./images/contacts/gmail.svg')
+
+				&[href*='github']
+					background-image url('./images/contacts/github.svg')
+
+	h1
+	h2
+		position absolute
+	
+	h1
+		top 30%
+		left 5%
+		font-size 6em
+		padding .1em
+		background-color: $color-primary
+
+	h2
+		top 55%
+		left 7%
+		color #FFF
+		font-size 4em
+		padding .1em
+		background-color: $color-dark
+		mix-blend-mode darken
+	
+	.movable
+		will-change transform
+
+	.polygon
+		position absolute
+		pointer-events none
+		&:nth-of-type(1)
+			top 10%
+			left 40%
+			width 20%
+			height 45%
+			background-color: $color-accent
+			// mix-blend-mode darken
+		
+		&:nth-of-type(2)
+			top 20%
+			left 62%
+			width 5%
+			height 75%
+			background-color: #fe1235
+
+		&:nth-of-type(3)
+			top 25%
+			left 70%
+			width 10vw
+			height 10vw
+			background-color #111
+			border-radius 50%
+			mix-blend-mode saturation
+
+	@media screen and (orientation landscape)
+		h1
+			top 15%
+			left 15%
+		h2
+			top 60%
+			left 30%
+
+		.polygon
+			&:nth-of-type(1)
+				top 5%
+				left 45%
+				width 8%
+				height 55%
+			&:nth-of-type(2)
+				top 15%
+				left 61%
+				width 3%
+			&:nth-of-type(3)
+				top 30%
+				left 54%
+				width 5vw
+				height 5vw
+
+
+
+//
+#skills
+	opacity 0
+	transition opacity .4s
+	&.visible
+		opacity 1
+		ul
+			li
+				animation grow-width 1s ease-in-out, fade-in .4s
+				animation-fill-mode forwards
+				.inner
+					color #FEFEFE
+
+				for i in 1..20
+					&:nth-of-type({i})
+						animation-delay (i * .05)s
+
+	ul
+		li
+			position relative
+			font-size 2.5em
+			font-weight 600
+			margin-bottom .6em
+			border: 2px solid $color-dark
+			width 1%
+			opacity 0
+			will-change width, opacity
+			.inner
+				padding .4em
+				letter-spacing 1px
+				color transparent
+				transition color .4s
+				z-index 2
+
+			for i in 1..20
+				&[data-confidence=\'{i * 5}\']
+					max-width: (i * 5)%
+			
+			&[data-skill='js']
+				.inner
+					color #323330
+
+
+//
+#projects
+	opacity 0
+	transition opacity .4s
+	&.visible
+		opacity 1
+		ul
+			li
+				animation fade-in .4s, move-up .4s
+				animation-fill-mode forwards
+
+				for i in 1..20
+					&:nth-of-type({i})
+						animation-delay (i * .05)s
+
+
+	ul
+		position relative
+		margin auto
+		display flex
+		flex-wrap wrap
+		li
+			position relative
+			margin 1em
+			background-position center
+			background-size auto 105%
+			background-repeat no-repeat
+			box-shadow: 0 2px 5px $color-dark
+			box-sizing border-box
+			opacity 0
+			will-change opacity
+			flex 0 1 auto
+			flex-basis calc(50% - 2em)
+			padding-top 45%
+			@media (min-width 720px)
+				flex-basis calc(33% - 2em)
+				padding-top 30%
+			
+			@media screen and (orientation landscape)
+				flex-basis calc(33% - 2em)
+				padding-top 30%
+
+			for i in (1..10)
+				&:nth-of-type({i})
+					animation-delay (.1 * i)s
+
+			a
+				display block
+				absolute()
+
+
+//
+@keyframes grow-width
+	0%
+		width 0
+	100%
+		width 100%
+
+
+@keyframes move-right
+	0%
+		transform translate3d(-100%, 0, 0)
+	100%
+		transform translate3d(0, 0, 0)
+
+
+@keyframes move-down
+	0%
+		transform translate3d(0, -100%, 0)
+	100%
+		transform translate3d(0, 0, 0)
+
+
+@keyframes move-left
+	0%
+		transform translate3d(100%, 0, 0)
+	100%
+		transform translate3d(0, 0, 0)
+
+
+@keyframes move-up
+	0%
+		transform translate3d(0, 100%, 0)
+	100%
+		transform translate3d(0, 0, 0)
+
+
+@keyframes fade-in
+	0%
+		opacity 0
+	100%
+		opacity 1
+
+
+
+
+@import 'scrollbar'
